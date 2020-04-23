@@ -28,14 +28,6 @@ body {
     background-position: bottom center;
 }
 
-h1 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: var(--fs-bigger);
-    padding-bottom: 10px;
-    border-bottom: 3px solid white;
-}
-
 .input-container {
     background-color: rgba(0, 0, 0, .7);
     border-radius: 10px;
@@ -94,10 +86,10 @@ h1 {
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     background-color: rgba(0, 0, 0, .7);
     border-radius: 10px;
-    padding: 1rem 2rem;
+    padding: 2rem 3rem;
 }
 
 .show {
@@ -107,7 +99,6 @@ h1 {
 .city-name-container {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
 }
 
 .city-name {
@@ -119,6 +110,7 @@ h1 {
     color: var(--clr-dark-muted);
     font-size: var(--fs-big);
     margin-left: 1rem;
+    margin-right: 1rem;
     padding: .4rem;
     border: 2px solid gray;
     border-radius: 100%;
@@ -128,11 +120,23 @@ h1 {
     text-transform: capitalize;
 }
 
+.weather-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 .temperature-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: .5rem;
+    gap: 1rem;
+    flex: 1;
+}
+
+.current-temperature {
+    color: orangered;
 }
 
 .data-text {
@@ -143,21 +147,38 @@ h1 {
     font-size: var(--fs-medium);
 }
 
+.data-text.big {
+    font-size: var(--fs-big);
+}
+
+.data-text.giant {
+    font-size: var(--fs-giant);
+}
+
+.wind-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .wind-direction {
-    margin: 1rem;
-    width: 3rem;
-    height: 3rem;
+    --size: 8rem;
+    --degrees: 0deg;
+    margin: calc(var(--size) / 5);
+    width: var(--size);
+    height: var(--size);
     background-color: rgba(0, 0, 0, .7);
     border-radius: 50%;
     position: relative;
     border: 1px solid white;
 }
 
-.wind-direction-needle {
-    --degrees: 0deg;
+.wind-direction::before {
+    content: "";
     position: absolute;
-    width: .5rem;
-    height: 1.5rem;
+    width: calc(var(--size) / 8);
+    height: calc(var(--size) / 2);
     background-color: red;
     clip-path: polygon(50% 0%, 0 100%, 100% 100%);
     left: 50%;
@@ -167,7 +188,7 @@ h1 {
 
 .wind-direction-text {
     position: absolute;
-    font-size: .7rem;
+    font-size: var(--fs-medium);
     font-family: 'Courier Prime', monospace;
     padding: 1px 3px;
 }

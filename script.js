@@ -4,9 +4,12 @@ const inputContainer = document.querySelector(".input-container");
 const weatherContainer = document.querySelector(".weather-container");
 const cityNameElement = document.querySelector(".city-name");
 const currentTemperature = document.querySelector(".current-temperature");
+const currentFeelsLike = document.querySelector(".current-feels-like");
+const currentHigh = document.querySelector(".current-high");
+const currentLow = document.querySelector(".current-low");
 const currentHumidity = document.querySelector(".current-humidity");
 const currentWindSpeed = document.querySelector(".current-wind-speed");
-const windDirectionNeedle = document.querySelector(".wind-direction-needle");
+const windDirection = document.querySelector(".wind-direction");
 const errorMessage = document.querySelector(".error-text");
 const cityNameInput = document.querySelector("#city-name-input");
 const currentWeatherDesciption = document.querySelector(".weather-description");
@@ -28,16 +31,19 @@ function populateData(cityName) {
         }
         console.log(data);
 
-        const windDirection = data.wind.deg || 0;
+        const windDir = data.wind.deg || 0;
 
         cityNameElement.textContent = data.name;
         countryShorthandle.textContent = data.sys.country;
         currentWeatherDesciption.textContent = data.weather[0].description;
-        currentTemperature.textContent = `${data.main.temp}°C`;
-        currentWindSpeed.textContent = `${data.wind.speed}m/s`;
+        currentTemperature.textContent = `${data.main.temp.toFixed(1)}°C`;
+        currentFeelsLike.textContent = `${data.main.feels_like.toFixed(1)}°C`;
+        currentHigh.textContent = `${data.main.temp_max.toFixed(1)}°C`;
+        currentLow.textContent = `${data.main.temp_min.toFixed(1)}°C`;
         currentHumidity.textContent = `${data.main.humidity}%`;
+        currentWindSpeed.textContent = `${data.wind.speed}m/s`;
 
-        windDirectionNeedle.style.setProperty("--degrees", `${windDirection}deg`);
+        windDirection.style.setProperty("--degrees", `${windDir}deg`);
         weatherContainer.classList.add("show");
         inputContainer.classList.add("top");
         errorMessage.classList.remove("show-error");

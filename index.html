@@ -17,31 +17,30 @@
         <p class="error-text"></p>
     </div>
     <div class="weather-container show">
-        <h1>Current Weather Report</h1>
         <div class="city-name-container">
-            <div class="city-name">Stuttgart</div><span class="country">DE</span>
+            <div class="city-name">Stuttgart</div>
+            <div class="country">DE</div>
+            <div class="weather-description data-text">Clear Sky</div>
         </div>
-        <div class="weather-description data-text medium">Clear Sky</div>
-        <div class="temperature-container">
-            <div class="data-text">Temp.: <span class="current-temperature">17,8°C</span> (Feels like: <span class="feels-like">20°C</span>)</div>
-            <div class="data-text medium">High: <span class="high">50°C</span></div>
-            <div class="data-text medium">Low: <span class="low">-13°C</span></div>
-        </div>
-        <p class="data-text">
-            Humidity: 
-            <span class="current-humidity">50%</span>
-        </p class="data-text">
-        <div class="wind-container">
-            <p class="data-text">
-                Wind: 
-                <span class="current-wind-speed">5m/s</span>
-            </p>
-            <div class="wind-direction">
-                <div class="wind-direction-needle"></div>
-                <div class="wind-direction-text north">N</div>
-                <div class="wind-direction-text east">E</div>
-                <div class="wind-direction-text south">S</div>
-                <div class="wind-direction-text west">W</div>
+
+        <div class="weather-data">
+            <div class="temperature-container">
+                <div class="data-text giant"><span class="current-temperature">15.15°C</span></div>
+                <div class="data-text big">Feels like: <span class="current-feels-like">20°C</span></div>
+                <div class="data-text medium">High: <span class="current-high">50°C</span></div>
+                <div class="data-text medium">Low: <span class="current-low">-13°C</span></div>
+                <div class="data-text">Humidity: <span class="current-humidity">50%</span></div>
+            </div>
+
+            <div class="wind-container">
+                <div class="current-wind-speed data-text">5m/s</div>
+                <div class="wind-direction">
+                    <div class="wind-direction-needle"></div>
+                    <div class="wind-direction-text north">N</div>
+                    <div class="wind-direction-text east">E</div>
+                    <div class="wind-direction-text south">S</div>
+                    <div class="wind-direction-text west">W</div>
+                </div>
             </div>
         </div>
     </div>
