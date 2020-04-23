@@ -2,12 +2,15 @@ const apiKey = "a5224489792af12aa5ff9b5dd6e24f52";
 
 const inputContainer = document.querySelector(".input-container");
 const weatherContainer = document.querySelector(".weather-container");
-const cityElement = document.querySelector(".city");
-const degreesElement = document.querySelector(".degrees");
-const windSpeedElement = document.querySelector(".wind-speed");
+const cityNameElement = document.querySelector(".city-name");
+const currentTemperature = document.querySelector(".current-temperature");
+const currentHumidity = document.querySelector(".current-humidity");
+const currentWindSpeed = document.querySelector(".current-wind-speed");
 const windDirectionNeedle = document.querySelector(".wind-direction-needle");
 const errorMessage = document.querySelector(".error-text");
 const cityNameInput = document.querySelector("#city-name-input");
+const currentWeatherDesciption = document.querySelector(".weather-description");
+const countryShorthandle = document.querySelector(".country");
 
 
 function populateData(cityName) {
@@ -24,10 +27,16 @@ function populateData(cityName) {
             return;
         }
         console.log(data);
-        cityElement.textContent = `${data.name} (${data.sys.country})`;
-        degreesElement.textContent = `${data.main.temp}°C`;
-        windSpeedElement.textContent = `${data.wind.speed}m/s`;
+
         const windDirection = data.wind.deg || 0;
+
+        cityNameElement.textContent = data.name;
+        countryShorthandle.textContent = data.sys.country;
+        currentWeatherDesciption.textContent = data.weather[0].description;
+        currentTemperature.textContent = `${data.main.temp}°C`;
+        currentWindSpeed.textContent = `${data.wind.speed}m/s`;
+        currentHumidity.textContent = `${data.main.humidity}%`;
+
         windDirectionNeedle.style.setProperty("--degrees", `${windDirection}deg`);
         weatherContainer.classList.add("show");
         inputContainer.classList.add("top");

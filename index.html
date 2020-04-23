@@ -3,32 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Weather App</title>
 </head>
 <body>
-    <div class="input-container">
+    <div class="input-container top">
         <form name="customForm" id="custom">
             <label for="city-name-input" class="city-name-input-label">Get weather for: </label>
             <input type="text" id="city-name-input" name="city-name-input" placeholder="Enter City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter City'">
         </form>
         <p class="error-text"></p>
     </div>
-    <div class="weather-container">
-        <h1>Current Weather</h1>
-        <h2 class="city"></h2>
-        <p>
-            Temperature: 
-            <span class="degrees"></span>
-        </p>
-        <p>
-            Wind: 
-            <span class="wind-speed"></span>
+    <div class="weather-container show">
+        <h1>Current Weather Report</h1>
+        <div class="city-name-container">
+            <div class="city-name">Stuttgart</div><span class="country">DE</span>
+        </div>
+        <div class="weather-description data-text medium">Clear Sky</div>
+        <div class="temperature-container">
+            <div class="data-text">Temp.: <span class="current-temperature">17,8°C</span> (Feels like: <span class="feels-like">20°C</span>)</div>
+            <div class="data-text medium">High: <span class="high">50°C</span></div>
+            <div class="data-text medium">Low: <span class="low">-13°C</span></div>
+        </div>
+        <p class="data-text">
+            Humidity: 
+            <span class="current-humidity">50%</span>
+        </p class="data-text">
+        <div class="wind-container">
+            <p class="data-text">
+                Wind: 
+                <span class="current-wind-speed">5m/s</span>
+            </p>
             <div class="wind-direction">
                 <div class="wind-direction-needle"></div>
+                <div class="wind-direction-text north">N</div>
+                <div class="wind-direction-text east">E</div>
+                <div class="wind-direction-text south">S</div>
+                <div class="wind-direction-text west">W</div>
             </div>
-        </p>
+        </div>
     </div>
 </body>
 </html>
