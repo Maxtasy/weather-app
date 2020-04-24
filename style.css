@@ -12,7 +12,7 @@
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Electrolize', sans-serif;
 }
 
 body {
@@ -29,6 +29,8 @@ body {
 }
 
 .input-container {
+    --primary-text-color: linen;
+    --button-bg-color: #fd7d18;
     background-color: rgba(0, 0, 0, .7);
     border-radius: 10px;
     padding: 1.25rem 2rem;
@@ -54,7 +56,8 @@ body {
 }
 
 .city-name-input-label {
-    font-size: 1.25rem;
+    color: var(--primary-text-color);
+    font-size: var(--fs-bigger);
     font-weight: bold;
     display: block;
 }
@@ -68,9 +71,28 @@ body {
     background-color: linen;
 }
 
+#city-name-input:hover,
 #city-name-input:active,
 #city-name-input:focus {
-    border: 2px solid lightblue;
+    border: 2px solid var(--button-bg-color);
+}
+
+.city-name-submit-button {
+    color: black;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: var(--button-bg-color);
+    border: none;
+    border-radius: 100vmax;
+    font-weight: bold;
+    font-size: var(--fs-medium);
+    padding: .25rem .7rem;
+}
+
+.city-name-submit-button:hover,
+.city-name-submit-button:active,
+.city-name-submit-button:focus {
+    background-color: #fdac99;
 }
 
 .error-text {
@@ -171,7 +193,7 @@ body {
     background-color: rgba(0, 0, 0, .7);
     border-radius: 50%;
     position: relative;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 .wind-direction::before {
@@ -184,13 +206,14 @@ body {
     left: 50%;
     transform: translateX(-50%) rotate(var(--degrees));
     transform-origin: bottom;
+    border-radius: 1rem;
 }
 
 .wind-direction-text {
     position: absolute;
     font-size: var(--fs-medium);
-    font-family: 'Courier Prime', monospace;
-    padding: 1px 3px;
+    /* font-family: 'Courier Prime', monospace; */
+    padding: 1px 5px;
 }
 
 .north {

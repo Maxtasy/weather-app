@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Weather App</title>
 </head>
 <body>
-    <div class="input-container top">
+    <div class="input-container">
         <form name="customForm" id="custom">
             <label for="city-name-input" class="city-name-input-label">Get weather for: </label>
-            <input type="text" id="city-name-input" name="city-name-input" placeholder="Enter City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter City'">
+            <input type="text" id="city-name-input" name="city-name-input" placeholder="Enter City or ZIP Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter City or ZIP Code'">
+            <button type="submit" class="city-name-submit-button">Search</button>
         </form>
         <p class="error-text"></p>
     </div>
-    <div class="weather-container show">
+    <div class="weather-container">
         <div class="city-name-container">
             <div class="city-name">Stuttgart</div>
             <div class="country">DE</div>
+            <img class="weather-icon" src="http://openweathermap.org/img/wn/10d@2x.png">
             <div class="weather-description data-text">Clear Sky</div>
         </div>
 

@@ -14,6 +14,7 @@ const errorMessage = document.querySelector(".error-text");
 const cityNameInput = document.querySelector("#city-name-input");
 const currentWeatherDesciption = document.querySelector(".weather-description");
 const countryShorthandle = document.querySelector(".country");
+const weatherIcon = document.querySelector(".weather-icon");
 
 
 function populateData(cityName) {
@@ -42,6 +43,10 @@ function populateData(cityName) {
         currentLow.textContent = `${data.main.temp_min.toFixed(1)}°C`;
         currentHumidity.textContent = `${data.main.humidity}%`;
         currentWindSpeed.textContent = `${data.wind.speed}m/s`;
+        weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+        const weatherType = data.weather[0].main.toLowerCase();
+        document.body.style.backgroundImage = `url(img/${weatherType}.jpg)`;
 
         windDirection.style.setProperty("--degrees", `${windDir}deg`);
         weatherContainer.classList.add("show");
