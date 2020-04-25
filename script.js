@@ -16,9 +16,21 @@ const currentWeatherDesciption = document.querySelector(".weather-description");
 const countryShorthandle = document.querySelector(".country");
 const weatherIcon = document.querySelector(".weather-icon");
 
+function isZipCode(inputString) {
+    return (inputString.includes(",") && !isNaN(inputString.split(",")[0])) ? true : false;
+}
 
-function populateData(cityName) {
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+function populateData(inputString) {
+    let searchMethod;
+
+    if (isZipCode(inputString)) {
+        searchMethod = "zip";
+    } else {
+        searchMethod = "q";
+    }
+    
+    const url = `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${inputString}&appid=${apiKey}&units=metric`;
+
     fetch(url) // Call the fetch function passing the url of the API as a parameter
     .then((response) => {
         return response.json();
@@ -30,7 +42,7 @@ function populateData(cityName) {
             errorMessage.classList.add("show-error");
             return;
         }
-        console.log(data);
+        // console.log(data);
 
         const windDir = data.wind.deg || 0;
 
@@ -61,7 +73,7 @@ function populateData(cityName) {
 
 document.customForm.addEventListener("submit", function(e) {
     e.preventDefault();
-    const cityName = this["city-name-input"].value;
-    populateData(cityName);
+    const inputString = this["city-name-input"].value;
+    populateData(inputString);
     this.reset();
 });

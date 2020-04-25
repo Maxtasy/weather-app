@@ -5,6 +5,7 @@
     --fs-bigger: 2rem;
     --fs-giant: 3rem;
     --clr-dark-muted: #EEE;
+    --top-bar-height: 12rem;
 }
 
 *, *::before, *::after {
@@ -45,6 +46,7 @@ body {
     top: 0;
     width: 100%;
     border-radius: 0;
+    height: var(--top-bar-height);
 }
 
 #custom {
@@ -52,7 +54,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
 }
 
 .city-name-input-label {
@@ -69,6 +70,8 @@ body {
     text-align: center;
     font-size: 1.25rem;
     background-color: linen;
+    outline: none;
+    margin: 1rem 0;
 }
 
 #city-name-input:hover,
@@ -112,6 +115,7 @@ body {
     background-color: rgba(0, 0, 0, .7);
     border-radius: 10px;
     padding: 2rem 3rem;
+    margin-top: var(--top-bar-height);
 }
 
 .show {
