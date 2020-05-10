@@ -29,7 +29,7 @@ function populateData(inputString) {
         searchMethod = "q";
     }
     
-    const url = `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${inputString}&appid=${apiKey}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${inputString}&appid=${apiKey}&units=metric`;
 
     fetch(url) // Call the fetch function passing the url of the API as a parameter
     .then((response) => {
@@ -55,7 +55,7 @@ function populateData(inputString) {
         currentLow.textContent = `${data.main.temp_min.toFixed(1)}°C`;
         currentHumidity.textContent = `${data.main.humidity}%`;
         currentWindSpeed.textContent = `${data.wind.speed}m/s`;
-        weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
         const weatherType = data.weather[0].main.toLowerCase();
         document.body.style.backgroundImage = `url(img/${weatherType}.jpg)`;
